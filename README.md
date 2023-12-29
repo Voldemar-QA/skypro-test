@@ -17,8 +17,8 @@
 - Создан или клонирован тестовый репозиторий с произвольным содержимым для работы с Issues.
 
 ## Установка
-1. [Создать и сохранить]([url](https://github.com/settings/tokens)) персональный токен доступа к API GitHub с максимальными правами администратора.
-2. [Импортировать коллекцию]([url](https://drive.google.com/file/d/1LzZUqGwWVdP8J58xSOH2gKX0mFipyKen/view?usp=sharing)) в Postman.
+1. [Создать и сохранить]([https://github.com/settings/tokens]) персональный токен доступа к API GitHub с максимальными правами администратора.
+2. [Импортировать коллекцию]([https://drive.google.com/file/d/1LzZUqGwWVdP8J58xSOH2gKX0mFipyKen/view?usp=sharing]) в Postman.
 3. Настроить переменные окружения:
    - во вкладке Authorization выбрать Type = Bearer Token;
    - вставить в соответствующее поле персональный токен доступа к API GitHub;
@@ -33,54 +33,52 @@
 1. Открыть коллекцию в Postman.
 2. Проверить переменные окружения.
 3. Проверить тестовые скрипты, в том числе скрипты для передачи данных в переменные окружения.
-4. Выполнить запросы в соответствии с описанием тест-кейсов в [тест-сьюте для API]([url](https://drive.google.com/file/d/1H53cHaUDdPUKtZRh8yMFIs-NQc5ZzlOz/view?usp=sharing)).
+4. Выполнить запросы в соответствии с описанием тест-кейсов в [тест-сьюте для API]([https://drive.google.com/file/d/1H53cHaUDdPUKtZRh8yMFIs-NQc5ZzlOz/view?usp=sharing).
 
 ## Примеры ответов
 1. Пример успешного ответа:
 Status code 201 Created
 PASS Status code is 200 or 2XX
 {"url": "https://api.github.com/repos/[user]/[repo]/issues/[number]",
-    ...
-    "id": 2059193243,
-    ...
-    "number": 18,        //как пример
-    "title": "Issue 1",
-    "user": {
-        "login": "[user]",
-        ...
-        "type": "User",
-        "site_admin": false},
-    "labels": [{...
-            "url": "https://api.github.com/repos/[user]/skypro-test/labels/bug",
-            "name": "bug",
-            ...
-            "default": true,
-            "description": "Something isn't working"}],
-    ...
-    "assignee": {
-        "login": "[user]",
-        ...
-        "url": "https://api.github.com/users/[user]",
-        "html_url": "https://github.com/[user]",
-        ...
-        "type": "User",
-        "site_admin": false},
-    "assignees": [{
-            "login": "[user]",
-        ...
-        "url": "https://api.github.com/users/[user]",
-        "html_url": "https://github.com/[user]",
-        ...
-        "type": "User",
-        "site_admin": false},]
+...
+"id": 2059193243,
+...
+"number": 18,        //как пример
+"title": "Issue 1",
+"user": {
+"login": "[user]",
+...
+"type": "User",
+"site_admin": false},
+"labels": [{...
+"url": "https://api.github.com/repos/[user]/skypro-test/labels/bug",
+"name": "bug",
+...
+"default": true,
+"description": "Something isn't working"}],
+...
+"assignee": {
+"login": "[user]",
+...
+"url": "https://api.github.com/users/[user]",
+"html_url": "https://github.com/[user]",
+...
+"type": "User",
+"site_admin": false},
+"assignees": [{
+"login": "[user]",
+...
+"url": "https://api.github.com/users/[user]",
+"html_url": "https://github.com/[user]",
+...
+"type": "User",
+"site_admin": false},]
 
 3. Пример ответа с ошибкой:
 Status 404 Not Found
 FAIL AssertionError: expected 404 to be one of [200, 201, 204].
-{
-    "message": "Not Found",
-    "documentation_url": "https://docs.github.com/rest"
-}
+{"message": "Not Found",
+"documentation_url": "https://docs.github.com/rest"}
 
 ## Проблемы и решения
 Проблема выполнения последнего теста с удалением Issue через API остается нерешенной.
