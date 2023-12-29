@@ -87,11 +87,9 @@ PASS Status code is 200 or 2XX
 Возможно, это баг. Пример команды на удаление Issue через Curl и результат:  
 
 $ curl -X DELETE -H "Authorization: Bearer //токен авторизации//" https://api.github.com/repos/[user]/[repo]/issues/[number]  
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current  
-Dload  Upload   Total   Spent    Left  Speed  
-100    84  100    84    0     0     99      0 --:--:-- --:--:-- --:--:--    99  
-{"message": "Not Found",  
- "documentation_url": "https://docs.github.com/rest"}  
+% Total    % Received % Xferd  Average Speed   Time  Time  Time  Current  Dload  Upload   Total   Spent    Left  Speed  
+100    84    100    84     0     0     99      0 --:--:-- --:--:-- --:--:--    99  
+{ "message": "Not Found",  "documentation_url": "https://docs.github.com/rest" }  
 
 ## Лицензия
 Этот проект распространяется под лицензией MIT (свобода использования, модификации, модификации, распространения, отсутствие гарантий.)
