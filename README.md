@@ -37,25 +37,23 @@
 
 ## Примеры ответов
 1. Пример успешного ответа:
-Status code 201 Created
-PASS Status code is 200 or 2XX
-
-{"url": "https://api.github.com/repos/[user]/[repo]/issues/[number]",
-
-...
-"id": 2059193243,
-...
-"number": 18,        //как пример
-"title": "Issue 1",
-"user": {
-"login": "[user]",
-...
-"type": "User",
-"site_admin": false},
-"labels": [{...
-"url": "https://api.github.com/repos/[user]/skypro-test/labels/bug",
-"name": "bug",
-...
+Status code 201 Created  
+PASS Status code is 200 or 2XX  
+{"url": "https://api.github.com/repos/[user]/[repo]/issues/[number]",  
+...  
+"id": 2059193243,  
+...  
+"number": 18,        //как пример  
+"title": "Issue 1",  
+"user": {  
+"login": "[user]",  
+...  
+"type": "User",  
+"site_admin": false},  
+"labels": [{...  
+"url": "https://api.github.com/repos/[user]/skypro-test/labels/bug",  
+"name": "bug",  
+...  
 "default": true,
 "description": "Something isn't working"}],
 ...
