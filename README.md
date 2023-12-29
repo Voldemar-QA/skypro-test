@@ -17,28 +17,88 @@
 - Создан или клонирован тестовый репозиторий с произвольным содержимым для работы с Issues.
 
 ## Установка
-1. Создать и сохранить персональный токен доступа (token) к API GitHub с максимальными правами ([создание токена]([url](https://github.com/settings/tokens))).
-2. [Импортировать коллекцию](url) в Postman.
-3. Настройте переменные окружения.
+1. [Создать и сохранить]([url](https://github.com/settings/tokens)) персональный токен доступа к API GitHub с максимальными правами администратора.
+2. [Импортировать коллекцию]([url](https://drive.google.com/file/d/1LzZUqGwWVdP8J58xSOH2gKX0mFipyKen/view?usp=sharing)) в Postman.
+3. Настроить переменные окружения:
+   - во вкладке Authorization выбрать Type = Bearer Token;
+   - вставить в соответствующее поле персональный токен доступа к API GitHub;
+   - во вкладке Variables создать переменную token;
+   - вставить в соответствующие поля Initial value и Current value персональный токен доступа к API GitHub;
+   - во вкладке Variables создать переменную baseURL;
+   - вставить в соответствующие поля Initial value и Current value базовый URL, куда будут отправляться запросы - https://api.github.com/repos/[user]/[repo]/issues
+     где [user] = логин хозяина репозитория, [repo] = название репозитория в строке адреса;
+   - во вкладке Variables создать переменную number для передачи номера создаваемого / изменяемого issue.
 
 ## Использование
-1. Откройте коллекцию в Postman.
-2. Выполните запросы в соответствии с инструкциями в каждом запросе.
-3. ...
-
-## Переменные окружения
-- `BASE_URL`: Базовый URL для API.
+1. Открыть коллекцию в Postman.
+2. Проверить переменные окружения.
+3. Проверить тестовые скрипты, в том числе скрипты для передачи данных в переменные окружения.
+4. Выполнить запросы в соответствии с описанием тест-кейсов в [тест-сьюте для API]([url](https://drive.google.com/file/d/1H53cHaUDdPUKtZRh8yMFIs-NQc5ZzlOz/view?usp=sharing)).
 
 ## Примеры ответов
-- Пример успешного ответа.
-- Пример ответа с ошибкой.
+1. Пример успешного ответа:
+Status code 201 Created
+PASS Status code is 200 or 2XX
+{"url": "https://api.github.com/repos/[user]/[repo]/issues/[number]",
+    ...
+    "id": 2059193243,
+    ...
+    "number": 18,        //как пример
+    "title": "Issue 1",
+    "user": {
+        "login": "[user]",
+        ...
+        "type": "User",
+        "site_admin": false},
+    "labels": [{...
+            "url": "https://api.github.com/repos/[user]/skypro-test/labels/bug",
+            "name": "bug",
+            ...
+            "default": true,
+            "description": "Something isn't working"}],
+    ...
+    "assignee": {
+        "login": "[user]",
+        ...
+        "url": "https://api.github.com/users/[user]",
+        "html_url": "https://github.com/[user]",
+        ...
+        "type": "User",
+        "site_admin": false},
+    "assignees": [{
+            "login": "[user]",
+        ...
+        "url": "https://api.github.com/users/[user]",
+        "html_url": "https://github.com/[user]",
+        ...
+        "type": "User",
+        "site_admin": false},]
+
+3. Пример ответа с ошибкой:
+Status 404 Not Found
+FAIL AssertionError: expected 404 to be one of [200, 201, 204].
+{
+    "message": "Not Found",
+    "documentation_url": "https://docs.github.com/rest"
+}
 
 ## Проблемы и решения
-- Как решить проблему X?
-- Как настроить переменные окружения?
+Проблема выполнения последнего теста с удалением Issue через API остается нерешенной.
+Через внешний интерфейс удаление Issue происходит без проблем.
+Однако, не только через Postman, но и просто через командную строку удалить Issue не удается.
+Возможно, это баг. Пример команды на удаление Issue через Curl и результат:
+
+$ curl -X DELETE -H "Authorization: Bearer //токен автолризации//" https://api.github.com/repos/[user]/[repo]/issues/[number]
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    84  100    84    0     0     99      0 --:--:-- --:--:-- --:--:--    99
+{
+  "message": "Not Found",
+  "documentation_url": "https://docs.github.com/rest"
+}
 
 ## Лицензия
-Этот проект распространяется под лицензией MIT. Подробнее [здесь](LICENSE).
+Этот проект распространяется под лицензией MIT (свобода использования, модификации, модификации, распространения, отсутствие гарантий.)
 
-Предыдущая версия: Skypro home work
+Предыдущая версия Readme.md: Skypro home work.
 This is text file describing home work task from Skypro.
