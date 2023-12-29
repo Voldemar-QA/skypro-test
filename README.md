@@ -36,7 +36,7 @@
 4. Выполнить запросы в соответствии с описанием тест-кейсов в [тест-сьюте для API](https://drive.google.com/file/d/1H53cHaUDdPUKtZRh8yMFIs-NQc5ZzlOz/view?usp=sharing "Тест-ран с описанием тест-кейсов").
 
 ## Примеры ответов
-1. Пример успешного ответа:
+1. Пример успешного ответа:  
 Status code 201 Created  
 PASS Status code is 200 or 2XX  
 {"url": "https://api.github.com/repos/[user]/[repo]/issues/[number]",  
@@ -54,44 +54,44 @@ PASS Status code is 200 or 2XX
 "url": "https://api.github.com/repos/[user]/skypro-test/labels/bug",  
 "name": "bug",  
 ...  
-"default": true,
-"description": "Something isn't working"}],
-...
-"assignee": {
-"login": "[user]",
-...
-"url": "https://api.github.com/users/[user]",
-"html_url": "https://github.com/[user]",
-...
-"type": "User",
-"site_admin": false},
-"assignees": [{
-"login": "[user]",
-...
-"url": "https://api.github.com/users/[user]",
-"html_url": "https://github.com/[user]",
-...
-"type": "User",
-"site_admin": false},]
+"default": true,  
+"description": "Something isn't working"}],  
+...  
+"assignee": {  
+"login": "[user]",  
+...  
+"url": "https://api.github.com/users/[user]",  
+"html_url": "https://github.com/[user]",  
+...  
+"type": "User",  
+"site_admin": false},  
+"assignees": [{  
+"login": "[user]",  
+...  
+"url": "https://api.github.com/users/[user]",  
+"html_url": "https://github.com/[user]",  
+...  
+"type": "User",  
+"site_admin": false},]  
 
-3. Пример ответа с ошибкой:
-   Status 404 Not Found
-   FAIL AssertionError: expected 404 to be one of [200, 201, 204].
-   {"message": "Not Found",
-   "documentation_url": "https://docs.github.com/rest"}
+3. Пример ответа с ошибкой:  
+   Status 404 Not Found  
+   FAIL AssertionError: expected 404 to be one of [200, 201, 204].  
+   {"message": "Not Found",  
+   "documentation_url": "https://docs.github.com/rest"}  
 
 ## Проблемы и решения
-Проблема выполнения последнего теста с удалением Issue через API остается нерешенной.
-Через внешний интерфейс удаление Issue происходит без проблем.
-Однако, не только через Postman, но и просто через командную строку удалить Issue не удается.
-Возможно, это баг. Пример команды на удаление Issue через Curl и результат:
+Проблема выполнения последнего теста с удалением Issue через API остается нерешенной.  
+Через внешний интерфейс удаление Issue происходит без проблем.  
+Однако, не только через Postman, но и просто через командную строку удалить Issue не удается.  
+Возможно, это баг. Пример команды на удаление Issue через Curl и результат:  
 
-$ curl -X DELETE -H "Authorization: Bearer //токен авторизации//" https://api.github.com/repos/[user]/[repo]/issues/[number]
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-Dload  Upload   Total   Spent    Left  Speed
-100    84  100    84    0     0     99      0 --:--:-- --:--:-- --:--:--    99
-{"message": "Not Found",
- "documentation_url": "https://docs.github.com/rest"}
+$ curl -X DELETE -H "Authorization: Bearer //токен авторизации//" https://api.github.com/repos/[user]/[repo]/issues/[number]  
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current  
+Dload  Upload   Total   Spent    Left  Speed  
+100    84  100    84    0     0     99      0 --:--:-- --:--:-- --:--:--    99  
+{"message": "Not Found",  
+ "documentation_url": "https://docs.github.com/rest"}  
 
 ## Лицензия
 Этот проект распространяется под лицензией MIT (свобода использования, модификации, модификации, распространения, отсутствие гарантий.)
