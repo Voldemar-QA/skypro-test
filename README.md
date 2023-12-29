@@ -39,7 +39,9 @@
 1. Пример успешного ответа:
 Status code 201 Created
 PASS Status code is 200 or 2XX
+
 {"url": "https://api.github.com/repos/[user]/[repo]/issues/[number]",
+
 ...
 "id": 2059193243,
 ...
@@ -86,7 +88,7 @@ PASS Status code is 200 or 2XX
 Однако, не только через Postman, но и просто через командную строку удалить Issue не удается.
 Возможно, это баг. Пример команды на удаление Issue через Curl и результат:
 
-$ curl -X DELETE -H "Authorization: Bearer //токен автолризации//" https://api.github.com/repos/[user]/[repo]/issues/[number]
+$ curl -X DELETE -H "Authorization: Bearer //токен авторизации//" https://api.github.com/repos/[user]/[repo]/issues/[number]
 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 Dload  Upload   Total   Spent    Left  Speed
 100    84  100    84    0     0     99      0 --:--:-- --:--:-- --:--:--    99
