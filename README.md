@@ -75,10 +75,10 @@ PASS Status code is 200 or 2XX
 "site_admin": false},]
 
 3. Пример ответа с ошибкой:
-Status 404 Not Found
-FAIL AssertionError: expected 404 to be one of [200, 201, 204].
-{"message": "Not Found",
-"documentation_url": "https://docs.github.com/rest"}
+   Status 404 Not Found
+   FAIL AssertionError: expected 404 to be one of [200, 201, 204].
+   {"message": "Not Found",
+   "documentation_url": "https://docs.github.com/rest"}
 
 ## Проблемы и решения
 Проблема выполнения последнего теста с удалением Issue через API остается нерешенной.
@@ -87,13 +87,11 @@ FAIL AssertionError: expected 404 to be one of [200, 201, 204].
 Возможно, это баг. Пример команды на удаление Issue через Curl и результат:
 
 $ curl -X DELETE -H "Authorization: Bearer //токен автолризации//" https://api.github.com/repos/[user]/[repo]/issues/[number]
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+Dload  Upload   Total   Spent    Left  Speed
 100    84  100    84    0     0     99      0 --:--:-- --:--:-- --:--:--    99
-{
-  "message": "Not Found",
-  "documentation_url": "https://docs.github.com/rest"
-}
+{"message": "Not Found",
+ "documentation_url": "https://docs.github.com/rest"}
 
 ## Лицензия
 Этот проект распространяется под лицензией MIT (свобода использования, модификации, модификации, распространения, отсутствие гарантий.)
