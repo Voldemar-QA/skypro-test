@@ -17,8 +17,8 @@
 - Создан или клонирован тестовый репозиторий с произвольным содержимым для работы с Issues.
 
 ## Установка
-1. [Создать и сохранить]([https://github.com/settings/tokens]) персональный токен доступа к API GitHub с максимальными правами администратора.
-2. [Импортировать коллекцию]([https://drive.google.com/file/d/1LzZUqGwWVdP8J58xSOH2gKX0mFipyKen/view?usp=sharing]) в Postman.
+1. [Создать и сохранить](https://github.com/settings/tokens "Создание личных токенов в GitHub") персональный токен доступа к API GitHub с максимальными правами администратора.
+2. [Импортировать коллекцию](https://drive.google.com/file/d/1LzZUqGwWVdP8J58xSOH2gKX0mFipyKen/view?usp=sharing "GitHub_Issues_Stoliarov_Vladimir.postman_collection") в Postman.
 3. Настроить переменные окружения:
    - во вкладке Authorization выбрать Type = Bearer Token;
    - вставить в соответствующее поле персональный токен доступа к API GitHub;
@@ -33,7 +33,7 @@
 1. Открыть коллекцию в Postman.
 2. Проверить переменные окружения.
 3. Проверить тестовые скрипты, в том числе скрипты для передачи данных в переменные окружения.
-4. Выполнить запросы в соответствии с описанием тест-кейсов в [тест-сьюте для API]([https://drive.google.com/file/d/1H53cHaUDdPUKtZRh8yMFIs-NQc5ZzlOz/view?usp=sharing).
+4. Выполнить запросы в соответствии с описанием тест-кейсов в [тест-сьюте для API](https://drive.google.com/file/d/1H53cHaUDdPUKtZRh8yMFIs-NQc5ZzlOz/view?usp=sharing "Тест-ран с описанием тест-кейсов").
 
 ## Примеры ответов
 1. Пример успешного ответа:
