@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "0d64c83a-e9e7-402e-b69c-a790aa30a8f8",
+		"name": "Yandex Safe Browsing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27452156"
+	},
+	"item": [
+		{
+			"name": "Получение списка Safe Browsing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test if the response status code is OK\r",
+							"pm.test(\"Status code is 200 or 2XX\", function () {\r",
+							"pm.expect(pm.response.code).to.be.oneOf([200, 201], \"Passed\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}threatLists?key={{key}}",
+					"host": [
+						"{{baseURL}}threatLists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка по URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test if the response status code is OK\r",
+							"pm.test(\"Status code is 200 or 2XX\", function () {\r",
+							"pm.expect(pm.response.code).to.be.oneOf([200, 201], \"Passed\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client\": {\r\n    \"clientId\": \"{{clientId}}\",\r\n    \"clientVersion\": \"{1.1.1}\"\r\n  },\r\n  \"threatInfo\": {\r\n    \"threatTypes\": [\"MALWARE\", \"SOCIAL_ENGINEERING\"],\r\n    \"platformTypes\": [\"WINDOWS\", \"ANDROID\"],\r\n    \"threatEntryTypes\": [\"URL\"],\r\n    \"threatEntries\": [\r\n      {\"url\": \"{{URL1}}\"},\r\n      {\"url\": \"{{URL2}}\"},\r\n      {\"url\": \"{{URL3}}\"},\r\n      {\"url\": \"{{URL4}}\"},\r\n      {\"url\": \"{{URL5}}\"}\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}threatMatches:find?key={{key}}",
+					"host": [
+						"{{baseURL}}threatMatches"
+					],
+					"port": "find",
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "a0e714a5-fedc-4329-8c9e-0d9ee280c34e",
+			"type": "string"
+		},
+		{
+			"key": "baseURL",
+			"value": "https://sba.yandex.net/v4/",
+			"type": "string"
+		},
+		{
+			"key": "clientId",
+			"value": "team@teambuildingpro.ru",
+			"type": "string"
+		},
+		{
+			"key": "URL1",
+			"value": "http://malware-driveby.test.safebrowsing.yandex",
+			"type": "string"
+		},
+		{
+			"key": "URL2",
+			"value": "https://teambuildingpro.ru",
+			"type": "string"
+		},
+		{
+			"key": "URL3",
+			"value": "https://wildrussia.travel",
+			"type": "string"
+		},
+		{
+			"key": "URL4",
+			"value": "https://dataart.com",
+			"type": "string"
+		},
+		{
+			"key": "URL5",
+			"value": "http://kremlin.ru",
+			"type": "string"
+		}
+	]
+}
